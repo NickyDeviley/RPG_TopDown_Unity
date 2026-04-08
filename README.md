@@ -1,2 +1,3 @@
 # RPG_TopDown_Unity
-Este depositório foi criado para guardar o projeto desenvolvido durante o TCC de Analise e Desenvolvimento de Sistemas.
+
+Link para o GDD: https://docs.google.com/document/d/1hjK9AE_YOPFpWdTJu0vJGkrNUti_J8pG1DaHQkAR6S4/edit?usp=sharing
