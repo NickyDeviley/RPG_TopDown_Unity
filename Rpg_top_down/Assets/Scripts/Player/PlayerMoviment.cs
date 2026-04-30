@@ -57,13 +57,12 @@ public sealed class PlayerMoviment : MonoBehaviour
             jogador.Anim.SetLayerWeight(jogador.camadaAnimacao[0], 0);
             jogador.Anim.SetLayerWeight(jogador.camadaAnimacao[1], 0);
             
-            jogador.Anim.SetBool(HashAnim.andando, true);
+            jogador.Anim.SetBool(HashAnim.andando, true);          
         }
 
         if(x == 0 && y == 0)
-        {
+        {          
             jogador.Anim.SetBool(HashAnim.andando, false);            
         }
-
     }
 }
