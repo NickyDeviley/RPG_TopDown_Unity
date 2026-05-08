@@ -16,7 +16,7 @@ public sealed class JogadorDano : MonoBehaviour
         {
             HUDControle.Hud.AtualizarVida(jogador.Vida);
 
-            Debug.Log("Game Over!");
+            //Debug.Log("Game Over!");
         }
     }
 }

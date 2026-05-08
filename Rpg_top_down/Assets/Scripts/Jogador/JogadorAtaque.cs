@@ -17,10 +17,14 @@ public sealed class JogadorAtaque : MonoBehaviour
         if (Input.GetMouseButtonDown(0) && !jogador.EstaAtacando)
         {
             jogador.EstaAtacando = true;
+
+            jogador.AtaqueHit.enabled = true;
             
             jogador.Anim.SetTrigger(HashAnim.atacando);
 
             yield return new WaitForSeconds(.46f);
+
+            jogador.AtaqueHit.enabled = false;
 
             jogador.EstaAtacando = false;
         }
@@ -48,6 +52,14 @@ public sealed class JogadorAtaque : MonoBehaviour
         {
             jogador.AtaqueHit.offset = new(-0.01f, -1.18f);                        
             jogador.AtaqueHit.size = new(0.6f, 1.03f);
+        }
+    }
+
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Inimigo"))
+        {
+            Debug.Log("inimig");
         }
     }
 }

@@ -382,8 +382,8 @@ GameObject:
   - component: {fileID: 543193156}
   - component: {fileID: 543193157}
   m_Layer: 0
-  m_Name: Enemy
-  m_TagString: Untagged
+  m_Name: Slime
+  m_TagString: Inimigo
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -978,10 +978,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1021011683}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7a32024b1fc03d3459b52e9db153d82e, type: 3}
+  m_Script: {fileID: 11500000, guid: 07da40c2c136c204e90748edc56ecc63, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::HUDControle
-  vidaAnim: {fileID: 1324006262}
+  m_EditorClassIdentifier: Assembly-CSharp::GameController
 --- !u!1 &1278497316
 GameObject:
   m_ObjectHideFlags: 0
@@ -1159,6 +1158,51 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!1 &1476520233
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1476520235}
+  - component: {fileID: 1476520234}
+  m_Layer: 0
+  m_Name: HUDControler
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1476520234
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1476520233}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a32024b1fc03d3459b52e9db153d82e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HUDControle
+  vidaAnim: {fileID: 1324006262}
+--- !u!4 &1476520235
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1476520233}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 286.99414, y: 148.15015, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1486853143
 GameObject:
   m_ObjectHideFlags: 0
@@ -3394,7 +3438,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2078694652}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Density: 1
   m_Material: {fileID: 0}
@@ -3445,3 +3489,4 @@ SceneRoots:
   - {fileID: 1012150082}
   - {fileID: 1278497319}
   - {fileID: 1021011684}
+  - {fileID: 1476520235}
