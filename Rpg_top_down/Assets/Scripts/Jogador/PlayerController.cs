@@ -11,6 +11,7 @@ public sealed class PlayerController : MonoBehaviour
 
     //Variaveis privadas
     [Header("Variaveis")]
+    [SerializeField] private byte vida;
     [SerializeField] private float velocidade;
 
     private bool estaAtacando;
@@ -24,6 +25,7 @@ public sealed class PlayerController : MonoBehaviour
     public BoxCollider2D AtaqueHit {get => ataqueHit; set => ataqueHit = value; }
 
     //Propridades de variaveis
+    public byte Vida {get => vida; set => vida = value; }
     public float Velocidade{ get => velocidade; }
 
     public bool EstaAtacando {get => estaAtacando; set => estaAtacando = value; }

@@ -22,7 +22,7 @@ public sealed class SlimeInimigo : InimigoControle
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            Debug.Log("Jogador");
+            collision.gameObject.GetComponent<JogadorDano>().ReceberDano();
         }
     }
 }
