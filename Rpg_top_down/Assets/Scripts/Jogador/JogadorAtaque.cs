@@ -59,7 +59,7 @@ public sealed class JogadorAtaque : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Inimigo"))
         {
-            Debug.Log("inimig");
+            collision.GetComponent<SlimeInimigo>().ReceberDano();
         }
     }
 }

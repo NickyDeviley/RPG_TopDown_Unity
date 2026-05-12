@@ -12,11 +12,13 @@ public sealed class SlimeInimigo : InimigoControle
         MoviInimigo();
     }
 
+    #if UNITY_EDITOR
     void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, raioDeDeteccao);
+        Gizmos.DrawWireSphere(transform.position, RaioDeDeteccao);
     }
+    #endif
 
     void OnCollisionEnter2D(Collision2D collision)
     {

@@ -1,15 +1,28 @@
+using System.Collections;
 using UnityEngine;
 
 public class InimigoControle : MonoBehaviour
 {
     [Header("Componentes")]
     [SerializeField] private Animator anim;
+
+    [SerializeField] private Transform[] lugarAndar;
+    private Transform lugarAtual;
+
     private Collider2D boxJogador;
 
     [Header("Atributos")]
+    [SerializeField] private byte vida;
     [SerializeField] private float velocidade;
 
-    public float raioDeDeteccao;
+    [SerializeField] private float raioDeDeteccao;
+
+    private bool danoLevado;
+    private bool proximoLugar;
+
+
+    //Propriedade
+    public float RaioDeDeteccao {get => raioDeDeteccao; }
 
 
     public void VerificarJogador()
@@ -28,7 +41,7 @@ public class InimigoControle : MonoBehaviour
 
     public void MoviInimigo()
     {
-        if(boxJogador != null)
+        if(boxJogador != null && !danoLevado)
         {
             anim.SetBool(HashAnim.andando, true);
 
@@ -36,7 +49,61 @@ public class InimigoControle : MonoBehaviour
         }
         else
         {
-            anim.SetBool(HashAnim.andando, false);            
+            StartCoroutine(AndarRedor());
+        }
+    }
+
+    private IEnumerator AndarRedor()
+    {
+        if (!proximoLugar)
+        {
+            proximoLugar = true;
+
+            lugarAtual = lugarAndar[Random.Range(0, lugarAndar.Length)];
+
+            anim.SetBool(HashAnim.andando, true);
+
+            yield return new WaitForSeconds(5f);
+
+            proximoLugar = false;
+        }
+
+        transform.position = Vector2.MoveTowards(transform.position, lugarAtual.position, velocidade);
+
+        if(transform.position == lugarAtual.position)
+        {
+            anim.SetBool(HashAnim.andando, false);
+        }
+    }
+
+    
+    public void ReceberDano()
+    {
+        StartCoroutine(ControleDano());
+    }
+
+    private IEnumerator ControleDano()
+    {
+        if (!danoLevado)
+        {
+            danoLevado = true;
+
+            vida--;
+
+            anim.SetTrigger(HashAnim.receberDano);
+
+            if(vida <= 0)
+            {
+                anim.SetTrigger(HashAnim.morto);
+
+                yield return new WaitForSeconds(.45f);
+
+                Destroy(gameObject);
+            }
+
+            yield return new WaitForSeconds(.5f);
+
+            danoLevado = false;
         }
     }
 }
