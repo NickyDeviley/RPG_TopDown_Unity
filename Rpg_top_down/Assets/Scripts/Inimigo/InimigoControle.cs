@@ -20,10 +20,8 @@ public class InimigoControle : MonoBehaviour
     private bool danoLevado;
     private bool proximoLugar;
 
-
     //Propriedade
     public float RaioDeDeteccao {get => raioDeDeteccao; }
-
 
     public void VerificarJogador()
     {
@@ -55,24 +53,27 @@ public class InimigoControle : MonoBehaviour
 
     private IEnumerator AndarRedor()
     {
-        if (!proximoLugar)
+        if (!danoLevado)
         {
-            proximoLugar = true;
+            if (!proximoLugar)
+            {
+                proximoLugar = true;
+            
+                lugarAtual = lugarAndar[Random.Range(0, lugarAndar.Length)];
 
-            lugarAtual = lugarAndar[Random.Range(0, lugarAndar.Length)];
+                anim.SetBool(HashAnim.andando, true);
 
-            anim.SetBool(HashAnim.andando, true);
+                yield return new WaitForSeconds(5f);
 
-            yield return new WaitForSeconds(5f);
+                proximoLugar = false;
+            }
 
-            proximoLugar = false;
-        }
+            transform.position = Vector2.MoveTowards(transform.position, lugarAtual.position, velocidade);
 
-        transform.position = Vector2.MoveTowards(transform.position, lugarAtual.position, velocidade);
-
-        if(transform.position == lugarAtual.position)
-        {
-            anim.SetBool(HashAnim.andando, false);
+            if(transform.position == lugarAtual.position)
+            {
+                anim.SetBool(HashAnim.andando, false);
+            }
         }
     }
 
