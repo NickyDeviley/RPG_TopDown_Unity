@@ -4,12 +4,14 @@ public sealed class SlimeInimigo : InimigoControle
 {
     void FixedUpdate()
     {
-        VerificarJogador();
+        if(!GameController.game.JogoPausado)
+            VerificarJogador();
     }
 
     void Update()
     {
-        MoviInimigo();
+        if(!GameController.game.JogoPausado)
+            MoviInimigo();
     }
 
     #if UNITY_EDITOR

@@ -12,16 +12,20 @@ public sealed class PlayerMoviment : MonoBehaviour
 
     void FixedUpdate()
     {
-        Movi();        
+        if(!GameController.game.JogoPausado)
+            Movi();         
     }
 
     private void Movi()
     {
-        Vector2 pos = new Vector2 (Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")).normalized;
+        if (!GameController.game.JogoPausado)
+        {
+            Vector2 pos = new Vector2 (Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")).normalized;
+            
+            jogador.Rig.linearVelocity = pos * jogador.Velocidade;
 
-        jogador.Rig.linearVelocity = pos * jogador.Velocidade;
-
-        AnimacaoMovi(pos.x, pos.y);
+            AnimacaoMovi(pos.x, pos.y);
+        }
     }
 
     private void AnimacaoMovi(float x, float y)

@@ -4,6 +4,7 @@ public sealed class HUDControle : MonoBehaviour
 {
     public static HUDControle Hud {get; private set; }
     [SerializeField] private Animator vidaAnim;
+    [SerializeField] private Transform hudPausa;
 
     void Awake()
     {
@@ -17,9 +18,13 @@ public sealed class HUDControle : MonoBehaviour
         }
     }
 
-
     public void AtualizarVida(byte vida)
     {
         vidaAnim.SetInteger(HashAnim.vida, vida);
+    }
+
+    public void MenuPausa()
+    {
+        hudPausa.gameObject.SetActive(GameController.game.JogoPausado);
     }
 }

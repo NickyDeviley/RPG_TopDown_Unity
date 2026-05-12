@@ -7,9 +7,12 @@ public sealed class JogadorAtaque : MonoBehaviour
 
     void Update()
     {
-        DirecaoAtaque();
-
-        StartCoroutine(Atacando());
+        if (!GameController.game.JogoPausado)
+        {
+            DirecaoAtaque();
+            
+            StartCoroutine(Atacando());
+        }
     }
 
     private IEnumerator Atacando()
