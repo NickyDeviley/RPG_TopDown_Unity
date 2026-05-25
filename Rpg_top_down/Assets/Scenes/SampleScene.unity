@@ -3001,6 +3001,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07da40c2c136c204e90748edc56ecc63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameController
+  luzGlobal: {fileID: 619394801}
+  dia: 1
+  duracaoDia: 2
 --- !u!1 &1278497316
 GameObject:
   m_ObjectHideFlags: 0
